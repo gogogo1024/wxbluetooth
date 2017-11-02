@@ -1,0 +1,56 @@
+<!--pages/newbluetooth/newbluetooth.wxml-->
+
+
+<view class="content">
+  <!-- <text class="status">适配器状态：{{ status }}</text>
+    <text class="sousuo">是否搜索：{{ sousuo }}</text>
+    <text class="msg">消息：{{ msg }} </text>
+    <text class="msg1">消息：{{ msg1 }}</text> -->
+  <!-- <button type="primary" class="button" bindtap="lanya4">4获取设备后在列表中连接</button> -->
+  <!-- <button type="primary" class="button" bindtap="lanya5">5停止搜索周边设备</button> -->
+  <!-- <button type="primary" class="button" bindtap="lanya0">0断开蓝牙连接</button> -->
+</view>
+<view class="venues_list">
+  <block wx:for="{{devices}}" wx:key="{{test}}">
+    <view class="venues_item">
+      <text class="status">设备名称:{{item.name}}</text>
+      <text class="status">设备ID:{{item.deviceId}}</text>
+      <text class="status">连接状态:{{connectedDeviceId == item.deviceId?"已连接":"未连接"}}</text>
+      <view class="section">
+      </view>
+      <view class="section">
+        <button type="primary" class="button" bindtap="requestOpen" id="{{item.deviceId}}">请求开锁</button>
+        <button type="warn" disabled="{{disabled}}" class="button" bindtap="connectBuleDev" id="{{item.deviceId}}">开锁</button>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- <view class="services_list">
+    <block wx:for="{{services}}" wx:key="{{tt}}">
+        <view class="service_item">
+            <text class="status">isPrimary:{{isPrimary==true?"true":"false"}}</text>
+            <button type="primary" class="button" id="{{item.uuid}}">设备uuid:{{item.uuid}}</button>
+        </view>
+    </block>
+</view>
+<block wx:for="{{characteristics2}}">
+    <view> {{index}}: </view>
+    <view>uuid: {{item.uuid}} </view>
+    <view>indicate: {{item.properties.indicate==true?"支持 indicate 操作":"不支持 indicate 操作"}} </view>
+    <view>notify: {{item.properties.notify==true?"支持 notify 操作":"不支持 notify 操作"}}
+        <view wx:if="{{item.properties.notify==true}}">
+            <button type="primary" class="button" id="{{item.uuid}}" bindtap="openNotify">启用低功耗蓝牙设备特征值变化时的 notify 功能</button>
+        </view>
+
+    </view>
+    <view>read: {{item.properties.read==true?"支持 read 操作":"不支持 read 操作"}}</view>
+    <view wx:if="{{item.properties.read==true}}">
+        <button type="primary" class="button" id="{{item.uuid}}" bindtap="receiveMsg">读取信息</button>
+    </view>
+    <view>write {{item.properties.write==true?"支持 write 操作":"不支持 write 操作"}} </view>
+    <view wx:if="{{item.properties.write==true}}">
+        <button type="primary" class="button" id="{{item.uuid}}" bindtap="sendMsg">发送信息</button>
+    </view>
+
+</block> -->
